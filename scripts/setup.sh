@@ -43,12 +43,12 @@ fi
 # Build LevelDB
 echo "[5/6] Building LevelDB..."
 cd "$SRC_DIR/leveldb"
-mkdir -p build && cd build; cmake -DCMAKE_BUILD_TYPE=Release .. ; cmake --build . -j$(nproc)
+git submodule update --init --recursive; mkdir -p build && cd build; cmake -DCMAKE_BUILD_TYPE=Release .. ; cmake --build . -j$(nproc)
 
 # Build RocksDB with db_bench
 echo "[6/6] Building RocksDB..."
 cd "$SRC_DIR/rocksdb"
-mkdir -p build && cd build
+git submodule update --init --recursive; mkdir -p build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DWITH_SNAPPY=ON -DWITH_LZ4=ON \
     -DWITH_ZSTD=ON -DWITH_BENCHMARK_TOOLS=ON ..
 make -j$(nproc) db_bench

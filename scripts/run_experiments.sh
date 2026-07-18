@@ -20,9 +20,9 @@ RESULTS_DIR="$ROOT_DIR/results"
 MODE="${1:-all}"
 
 # Binary paths
-LEVELDB_BENCH="$SRC_DIR/leveldb/baseline_db_bench"
+LEVELDB_BENCH="$SRC_DIR/leveldb/build/baseline_db_bench"
 ROCKSDB_BENCH="$SRC_DIR/rocksdb/build/rocksdb_baseline_db_bench"
-LEVELDB_GROVE_BENCH="$SRC_DIR/leveldb-grove/grove_db_bench"
+LEVELDB_GROVE_BENCH="$SRC_DIR/leveldb-grove/build/grove_db_bench"
 ROCKSDB_GROVE_BENCH="$SRC_DIR/rocksdb-grove/build/rocksdb_grove_db_bench"
 
 # Common params (matching paper: 16B key, 128B value by default)

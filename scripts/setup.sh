@@ -43,7 +43,7 @@ fi
 # Build LevelDB
 echo "[5/6] Building LevelDB..."
 cd "$SRC_DIR/leveldb"
-make -j$(nproc) all
+mkdir -p build && cd build; cmake -DCMAKE_BUILD_TYPE=Release .. ; cmake --build . -j$(nproc)
 
 # Build RocksDB with db_bench
 echo "[6/6] Building RocksDB..."
@@ -55,7 +55,7 @@ make -j$(nproc) db_bench
 
 echo ""
 echo "=== Setup complete ==="
-echo "LevelDB db_bench: $SRC_DIR/leveldb/db_bench"
+echo "LevelDB db_bench: $SRC_DIR/leveldb/build/db_bench"
 echo "RocksDB db_bench: $SRC_DIR/rocksdb/build/db_bench"
 echo "YCSB: $SRC_DIR/ycsb"
 echo ""
